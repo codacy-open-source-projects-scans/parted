@@ -67,9 +67,11 @@ TESTS = \
   t3400-whole-disk-FAT-partition.sh \
   t4000-sun-raid-type.sh \
   t4001-sun-vtoc.sh \
+  t4002-sun-badlabel.sh \
   t4100-msdos-partition-limits.sh \
   t4100-dvh-partition-limits.sh \
   t4100-msdos-starting-sector.sh \
+  t4101-dvh-badlabel.sh \
   t4200-partprobe.sh \
   t4300-nilfs2-tiny.sh \
   t4301-nilfs2-badsb2.sh \
@@ -103,7 +105,7 @@ TESTS = \
 EXTRA_DIST = \
   $(TESTS) t-local.sh t-lvm.sh \
   init.cfg init.sh t-lib-helpers.sh gpt-header-munge \
-  gpt-header-move msdos-overlap gpt-attrs
+  gpt-header-move msdos-overlap gpt-attrs sun-badlabel
 
 check_PROGRAMS = print-align print-flags print-max dup-clobber duplicate \
   fs-resize
