@@ -1,6 +1,6 @@
  /*
     libparted - a library for manipulating disk partitions
-    Copyright (C) 1999-2003, 2005, 2007-2014, 2019-2023 Free Software
+    Copyright (C) 1999-2003, 2005, 2007-2014, 2019-2023, 2026 Free Software
     Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
@@ -199,6 +199,11 @@ ped_disk_new (PedDevice* dev)
 	if (!disk)
 		goto error_close_dev;
 	if (!type->ops->read (disk))
+		goto error_destroy_disk;
+	/* Kludge to make sure metadata are updated after read */
+	if (!_disk_push_update_mode (disk))
+		goto error_destroy_disk;
+	if (!_disk_pop_update_mode (disk))
 		goto error_destroy_disk;
 	disk->needs_clobber = 0;
 	ped_device_close (dev);

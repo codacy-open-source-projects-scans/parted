@@ -1,7 +1,7 @@
 /*
     libparted - a library for manipulating disk partitions
-    Copyright (C) 1999-2001, 2004-2005, 2007-2014, 2019-2023 Free Software
-    Foundation, Inc.
+    Copyright (C) 1999-2001, 2004-2005, 2007-2014, 2019-2023, 2026 Free
+    Software Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -34,23 +34,6 @@
 
 #include "misc.h"
 #include "pt-tools.h"
-
-/* this MBR boot code is loaded into 0000:7c00 by the BIOS.  See mbr.s for
- * the source, and how to build it
- */
-
-static const char MBR_BOOT_CODE[] = {
-	0xfa, 0xb8, 0x00, 0x10, 0x8e, 0xd0, 0xbc, 0x00,
-	0xb0, 0xb8, 0x00, 0x00, 0x8e, 0xd8, 0x8e, 0xc0,
-	0xfb, 0xbe, 0x00, 0x7c, 0xbf, 0x00, 0x06, 0xb9,
-	0x00, 0x02, 0xf3, 0xa4, 0xea, 0x21, 0x06, 0x00,
-	0x00, 0xbe, 0xbe, 0x07, 0x38, 0x04, 0x75, 0x0b,
-	0x83, 0xc6, 0x10, 0x81, 0xfe, 0xfe, 0x07, 0x75,
-	0xf3, 0xeb, 0x16, 0xb4, 0x02, 0xb0, 0x01, 0xbb,
-	0x00, 0x7c, 0xb2, 0x80, 0x8a, 0x74, 0x01, 0x8b,
-	0x4c, 0x02, 0xcd, 0x13, 0xea, 0x00, 0x7c, 0x00,
-	0x00, 0xeb, 0xfe
-};
 
 #define MSDOS_MAGIC		0xAA55
 #define PARTITION_MAGIC_MAGIC	0xf6f6
@@ -1442,11 +1425,6 @@ msdos_write (const PedDisk* disk)
 	if (!ptt_read_sector (disk->dev, 0, &s0))
 		return 0;
 	DosRawTable *table = (DosRawTable *) s0;
-
-	if (!table->boot_code[0]) {
-		memset (table, 0, 512);
-		memcpy (table->boot_code, MBR_BOOT_CODE, sizeof (MBR_BOOT_CODE));
-	}
 
 	/* If there is no unique identifier, generate a random one */
 	if (!table->mbr_signature)

@@ -1,7 +1,7 @@
 /*
     libparted
-    Copyright (C) 1998-2000, 2007-2014, 2019-2023 Free Software Foundation,
-    Inc.
+    Copyright (C) 1998-2000, 2007-2014, 2019-2023, 2026 Free Software
+    Foundation, Inc.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -567,8 +567,8 @@ ask_type (PedFileSystem* fs, int fat16_ok, int fat32_ok, FatType* out_fat_type)
 	ped_exception_throw (
 		PED_EXCEPTION_NO_FEATURE,
 		PED_EXCEPTION_CANCEL,
-		_("GNU Parted cannot resize this partition to this size.  "
-		  "We're working on it!"));
+		_("GNU Parted cannot resize this partition of this size.  "
+		  "This may be due to the filesystem size being too small."));
 
 	return 0;
 }

@@ -41,6 +41,8 @@ Or view it on-line at:
 For any copyright year range specified as YYYY-ZZZZ in this package
 note that the range specifies every single year in that closed interval.
 
+See the COPYING file for copyright details.
+
 
 NOTE TO DISTRIBUTIONS
 ---------------------
@@ -58,3 +60,5 @@ it.  Also, it means we get more bug reports ;)
 
 (2) When space is important, we suggest --without-readline, --disable-shared,
 and possibly --disable-nls.
+
+See the INSTALL file for basic installation instructions.

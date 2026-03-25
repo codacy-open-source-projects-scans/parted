@@ -428,3 +428,8 @@ require_filesystem_()
   grep $1 /proc/filesystems >/dev/null && return 0
   modprobe --quiet --dry-run $1 || skip_ "this test requires kernel support for $1"
 }
+
+require_hexdump_()
+{
+  hexdump -V || skip_ "hexdump: command not found"
+}

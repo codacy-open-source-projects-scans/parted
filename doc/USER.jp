@@ -176,7 +176,7 @@ readline サポートを ./configure への --disable-readline オプションで無効
 GNU Parted はフリーソフトウェアであり、GNU General Public License
 バージョン2が適用されています。これは Parted 配布物とともに、COPYING
 ファイルに含められているはずです。もしなければ、
-Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+https://www.gnu.org/licenses/
 に手紙を書いてください。
 
 注釈: libparted は GNU Parted の一部と考えられています。それは GNU General

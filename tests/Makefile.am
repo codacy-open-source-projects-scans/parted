@@ -57,6 +57,7 @@ TESTS = \
   t2320-dos-extended-noclobber.sh \
   t2400-dos-hfs-partition-type.sh \
   t2410-dos-udf-partition-type.sh \
+  t2420-msdos-no-boot-code.sh \
   t2500-probe-corrupt-hfs.sh \
   t3000-resize-fs.sh \
   t3200-resize-partition.sh \
