@@ -3,6 +3,10 @@ GNU parted NEWS                                    -*- outline -*-
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
 
+* Noteworthy changes in release 3.7 (2026-04-08) [stable]
+
+  Promoting alpha release to stable release 3.7
+
 * Noteworthy changes in release 3.6.37 (2026-03-24) [alpha]
 
 ** New Features
