@@ -54,7 +54,7 @@ wchar_strlen (const wchar_t* str)
 #endif
 }
 
-static wchar_t * _GL_ATTRIBUTE_PURE
+static const wchar_t * _GL_ATTRIBUTE_PURE
 wchar_strchr (const wchar_t* str, char ch)
 {
 #ifdef ENABLE_NLS

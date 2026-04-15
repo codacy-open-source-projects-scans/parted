@@ -5,6 +5,7 @@ EXTRA_DIST =				\
   .version				\
   .prev-version				\
   BUGS					\
+  Doxyfile				\
   libparted.pc.in			\
   libparted-fs-resize.pc.in		\
   parted.spec.in			\

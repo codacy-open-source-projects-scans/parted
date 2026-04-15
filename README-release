@@ -186,7 +186,7 @@ Once all the builds and tests have passed,
 
 * Update the API documentation webpage
 
-  Run `mkdir doc/libparted/API && `doxygen Doxyfile` from the top of the tree, after having run
+  Run `mkdir -p doc/libparted/API && doxygen Doxyfile` from the top of the tree, after having run
   make. Then copy the contents of the API directory to the cvs web manually.
 
   * Check out the parted web directory with cvs using your login. See https://savannah.gnu.org/cvs/?group=parted for details on group membership.
