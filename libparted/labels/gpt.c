@@ -873,7 +873,7 @@ _parse_part_entry (PedDisk *disk, GuidPartitionEntry_t *pte)
   for (i = 0; i < 36; i++)
     gpt_part_data->name[i] = (efi_char16_t) pte->PartitionName[i];
   gpt_part_data->name[i] = 0;
-  gpt_part_data->translated_name = 0;
+  gpt_part_data->translated_name = NULL;
   gpt_part_data->attributes = pte->Attributes;
 
   return part;
@@ -1379,7 +1379,7 @@ gpt_partition_new (const PedDisk *disk,
     goto error_free_part;
 
   gpt_part_data->type = PARTITION_LINUX_DATA_GUID;
-  gpt_part_data->translated_name = 0;
+  gpt_part_data->translated_name = NULL;
   uuid_generate ((unsigned char *) &gpt_part_data->uuid);
   swap_uuid_and_efi_guid (&gpt_part_data->uuid);
   memset (gpt_part_data->name, 0, sizeof gpt_part_data->name);
@@ -1417,7 +1417,7 @@ gpt_partition_duplicate (const PedPartition *part)
   if (part_data->translated_name) {
     result_data->translated_name = xstrdup (part_data->translated_name);
   } else {
-    result_data->translated_name = 0;
+    result_data->translated_name = NULL;
   }
   return result;
 

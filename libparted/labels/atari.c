@@ -1248,7 +1248,7 @@ atari_partition_new (const PedDisk* disk, PedPartitionType part_type,
 	AtariPart*	atrpart;
 
 	if (atr_xgm_in_icd(disk, part_type))
-		return 0;
+		return NULL;
 
 	part = _ped_partition_alloc (disk, part_type, fs_type, start, end);
 	if (!part)

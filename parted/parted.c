@@ -568,7 +568,7 @@ do_mklabel (PedDevice** dev, PedDisk** diskp)
 
 error_destroy_disk:
         ped_disk_destroy (disk);
-        *diskp = 0;
+        *diskp = NULL;
 error:
         return 0;
 }
@@ -1414,7 +1414,7 @@ do_print (PedDevice** dev, PedDisk** diskp)
                         part->type & PED_PARTITION_METADATA)
                             continue;
 
-                    tmp = ped_malloc (4);
+                    tmp = ped_malloc (6);
 
                     if (part->num >= 0)
                             sprintf (tmp, "%2d ", part->num);
@@ -1632,7 +1632,7 @@ _print_list ()
                 do_print (&current_dev, &diskp);
                 if (diskp)
                         ped_disk_destroy (diskp);
-                diskp = 0;
+                diskp = NULL;
                 putchar ('\n');
         }
 
@@ -1802,7 +1802,7 @@ do_rescue (PedDevice** dev, PedDisk** diskp)
 
         if (*diskp) {
                 ped_disk_destroy (*diskp);
-                *diskp = 0;
+                *diskp = NULL;
         }
         disk = ped_disk_new (*dev);
         if (!disk)
@@ -1975,7 +1975,7 @@ do_select (PedDevice** dev, PedDisk** diskp)
         ped_device_close (*dev);
         if (*diskp) {
                 ped_disk_destroy (*diskp);
-                *diskp = 0;
+                *diskp = NULL;
         }
         *dev = new_dev;
         print_using_dev (*dev);
@@ -2107,7 +2107,7 @@ do_set (PedDevice** dev, PedDisk **diskp)
         PedPartitionFlag        flag;
         int                     state;
 
-        if (*diskp == 0)
+        if (*diskp == NULL)
                 *diskp = ped_disk_new (*dev);
         if (!*diskp)
                 goto error;
@@ -2678,7 +2678,7 @@ int
 main (int argc, char** argv)
 {
         PedDevice*      dev;
-	PedDisk*        diskp = 0;
+	PedDisk*        diskp = NULL;
         int             status;
 
         set_program_name (argv[0]);

@@ -181,9 +181,9 @@ ufs_probe_sun (PedGeometry* geom)
 	struct ufs_super_block *sb;
 
 	if (geom->length < 5)
-		return 0;
+		return NULL;
 	if (!ped_geometry_read (geom, buf, 16 * 512 / geom->dev->sector_size, sectors))
-		return 0;
+		return NULL;
 
 	sb = (struct ufs_super_block *)buf;
 
@@ -210,13 +210,13 @@ ufs_probe_hp (PedGeometry* geom)
 	PedSector block_count;
 
 	if (geom->length < 5)
-		return 0;
+		return NULL;
 	const int	sectors = ((3 * 512) + geom->dev->sector_size - 1) /
 				   geom->dev->sector_size;
 	uint8_t*	buf = alloca (sectors * geom->dev->sector_size);
 
 	if (!ped_geometry_read (geom, buf, 16 * 512 / geom->dev->sector_size, sectors))
-		return 0;
+		return NULL;
 
 	sb = (struct ufs_super_block *)buf;
 

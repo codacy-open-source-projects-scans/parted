@@ -200,7 +200,7 @@ ped_file_system_probe_specific (
 	PED_ASSERT (geom != NULL);
 
 	if (!ped_device_open (geom->dev))
-		return 0;
+		return NULL;
 	result = fs_type->ops->probe (geom);
 	ped_device_close (geom->dev);
 	return result;

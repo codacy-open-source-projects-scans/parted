@@ -86,6 +86,8 @@ duplicate_legacy_root_dir (FatOpContext* ctx)
 
 	PED_ASSERT (old_fs_info->root_dir_sector_count
 			== new_fs_info->root_dir_sector_count);
+        PED_ASSERT (old_fs_info->root_dir_sector_count <= old_fs_info->buffer_sectors);
+        PED_ASSERT (new_fs_info->root_dir_sector_count <= new_fs_info->buffer_sectors);
 
 	if (!ped_geometry_read (ctx->old_fs->geom, old_fs_info->buffer,
 				old_fs_info->root_dir_offset,
@@ -639,7 +641,7 @@ create_resize_context (PedFileSystem* fs, const PedGeometry* new_geom)
 						* sizeof (FatDirEntry) / 512;
 
 	if (!get_fat_type (fs, new_geom, &new_fat_type))
-		return 0;
+		return NULL;
 
 	fat_calc_resize_sizes (new_geom, fs_info->cluster_sectors, new_fat_type,
 		root_dir_sector_count, fs_info->cluster_sectors,

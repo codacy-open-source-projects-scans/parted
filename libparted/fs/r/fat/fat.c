@@ -383,7 +383,7 @@ fat_copy (const PedFileSystem* fs, PedGeometry* geom, PedTimer* timer)
 error_close_new_fs:
 	ped_file_system_close (new_fs);
 error:
-	return 0;
+	return NULL;
 }
 
 static int

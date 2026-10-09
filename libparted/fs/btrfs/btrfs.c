@@ -44,9 +44,9 @@ btrfs_probe (PedGeometry* geom)
         PedSector offset = (64*1024)/geom->dev->sector_size;
 
         if (geom->length < offset+1)
-                return 0;
+                return NULL;
         if (!ped_geometry_read (geom, &buf, offset, 1))
-                return 0;
+                return NULL;
 
         if (PED_LE64_TO_CPU(buf.sb.magic) == BTRFS_MAGIC) {
                 return ped_geometry_new (geom->dev, geom->start, geom->length);

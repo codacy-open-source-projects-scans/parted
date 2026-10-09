@@ -400,7 +400,7 @@ bsd_partition_new (const PedDisk* disk, PedPartitionType part_type,
 error_free_part:
 	free (part);
 error:
-	return 0;
+	return NULL;
 }
 
 static PedPartition*

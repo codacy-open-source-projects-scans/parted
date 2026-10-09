@@ -99,7 +99,7 @@ _amiga_add_id (uint32_t id, struct AmigaIds *ids) {
 	struct AmigaIds *newid;
 
 	if ((newid=ped_malloc(sizeof (struct AmigaIds)))==NULL)
-		return 0;
+		return NULL;
 	newid->ID = id;
 	newid->next = ids;
 	return newid;

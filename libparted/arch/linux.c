@@ -306,7 +306,7 @@ _read_fd (int fd, char **buf)
         int s, filesize = 0;
 
         *buf = malloc (size * sizeof (char));
-        if (*buf == 0) {
+        if (*buf == NULL) {
                 return -1;
         }
 
@@ -2312,10 +2312,10 @@ _skip_entry (const char *name)
 		{ "loop",	sizeof ("loop") - 1	},
 		{ "ram",	sizeof ("ram") - 1	},
 		{ "fd",		sizeof ("fd") - 1	},
-		{ 0, 0 },
+		{ NULL, 0 },
 	};
 
-	for (i = entries; i->name != 0; i++) {
+	for (i = entries; i->name != NULL; i++) {
 		if (strncmp (name, i->name, i->len) == 0)
 			return 1;
 	}

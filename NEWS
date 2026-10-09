@@ -3,6 +3,36 @@ GNU parted NEWS                                    -*- outline -*-
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
 
+* Noteworthy changes in release 3.8 (2026-09-23) [stable]
+
+  Promoting alpha release to stable release 3.8
+
+* Noteworthy changes in release 3.7.14 (2026-09-17) [alpha]
+
+** Bug Fixes
+
+  hurd: Fix gnu_read problems with block size > 512b
+
+* Noteworthy changes in release 3.7.13 (2026-09-14) [alpha]
+
+** New Features
+
+  Add support for ExFAT filesystem
+
+** Bug Fixes
+
+  build: mark functions with const attribute, per gcc warnings
+
+  Cleanup zero as null pointer constant warnings
+
+  Fix 2 CVEs - CVE-2026-89085 and CVE-2026-89088
+
+  Add PED_ASSERT protection for 32bit build filesystem resize
+
+  fdasd: Make sure data set name is positive
+
+  parted: Fix partition number allocation in do_print
+
 * Noteworthy changes in release 3.7 (2026-04-08) [stable]
 
   Promoting alpha release to stable release 3.7

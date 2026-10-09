@@ -70,7 +70,7 @@ _amiga_add_id (uint32_t id, struct AmigaIds *ids) {
 	if ((newid=ped_malloc(sizeof (struct AmigaIds)))==NULL) {
 		ped_exception_throw(PED_EXCEPTION_ERROR, PED_EXCEPTION_CANCEL,
 			_("%s : Failed to allocate id list element\n"), __func__);
-		return 0;
+		return NULL;
 	}
 	newid->ID = id;
 	newid->next = ids;

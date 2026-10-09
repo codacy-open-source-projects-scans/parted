@@ -40,7 +40,7 @@ ntfs_probe (PedGeometry* geom)
 	PedGeometry *newg = NULL;
 
 	if (!ped_geometry_read(geom, buf, 0, 1))
-		return 0;
+		return NULL;
 
 	if (strncmp (NTFS_SIGNATURE, ((char *)buf + 3), strlen (NTFS_SIGNATURE)) == 0) {
 		uint64_t length;

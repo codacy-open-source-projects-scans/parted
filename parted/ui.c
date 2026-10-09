@@ -1255,7 +1255,7 @@ _can_create_logical (const PedDisk* disk)
         if (!ped_disk_type_check_feature (disk->type, PED_DISK_TYPE_EXTENDED))
                 return 0;
 
-        return ped_disk_extended_partition (disk) != 0;
+        return ped_disk_extended_partition (disk) != NULL;
 }
 
 int
@@ -1648,7 +1648,7 @@ interactive_mode (PedDevice** dev, PedDisk** disk, Command* cmd_list[])
 
                                         if (*disk) {
                                                 ped_disk_destroy (*disk);
-                                                *disk = 0;
+                                                *disk = NULL;
                                         }
                                 }
                         } else
